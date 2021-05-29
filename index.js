@@ -5,10 +5,17 @@ document.querySelector('#ewallet-form').addEventListener('submit', function(e) {
     const type = document.querySelector('.add__type').value;
     const desc = document.querySelector('.add__description').value;
     const value = document.querySelector('.add__value').value;
-    // console.log(desc, type, value);
-    addItems(type, desc, value);
 
-    resetForm();
+    // Alert for empty submission
+
+    if (desc && value) {
+        addItems(type, desc, value);
+
+        resetForm();
+    } else {
+        alert('Please enter description and value');
+    }
+
 });
 
 function addItems(type, desc, value) {
